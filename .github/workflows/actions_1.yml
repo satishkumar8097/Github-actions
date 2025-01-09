@@ -9,3 +9,8 @@ jobs:
 
         - name: list files
           run: ls -lrt
+
+        - name: execute shell script
+          run: |
+             chmod +x command.sh
+             ./command.sh  
