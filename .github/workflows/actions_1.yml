@@ -9,11 +9,14 @@ jobs:
         
         - name: list files
           run: |
+              ls -lrt
               echo $SHELL
               echo $0
         
         - name: execute shell script
-          run: ./command.sh
+          run: |
+             cd .github/workflows 
+             ./command.sh
           shell: bash
         
        
