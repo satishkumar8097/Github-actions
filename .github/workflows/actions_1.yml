@@ -14,7 +14,7 @@ jobs:
         
         - name: execute shell script
           run: ./command.sh 
-          shell: bash
+          shell: bash --noprofile --norc -exo pipefail {0}
         
        
 
