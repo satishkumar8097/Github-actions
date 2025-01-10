@@ -10,7 +10,13 @@ jobs:
         - name: list files
           run: ls -lrta
 
-        - name: execute shell script
-          run: |
-             chmod +x command.sh
-             ./command.sh  
+        - name: install cowsay package
+          run: sudo apt-get install cowsay -y    
+        
+        - name: generate ASCII art
+          run: cowsay -f dragon 
+
+        # - name: execute shell script
+        #   run: |
+        #      chmod +x command.sh
+        #      ./command.sh  
