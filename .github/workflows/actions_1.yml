@@ -1,19 +1,32 @@
 name: first workflow
 on: push
 jobs:
-    ASCII_job:
+    Build_job1:
         runs-on: ubuntu-latest
         steps:
         - name: Checkout
           uses: actions/checkout@v4
         
-        - name: list files
-          run: |
-              ls -lrta
+        - name: Install cowsay package
+          run: sudo apt-get install cowsay -y
         
-        - name: execute shell script
-          run: |
-             cd .github/workflows 
-             chmod +x command.sh
-             ./command.sh
-             
+        - name: Run cowsay command
+          run: cowsay -f dragon "run for cover" >> dragon.txt
+    
+    Test_job2:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+        
+        - name: Validate the file
+          run: grep -i "dragon" dragon.txt
+    
+    Deploy_job3:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+        
+        - name: read the file
+          run: cat .github/workflows/dragon.txt                       
