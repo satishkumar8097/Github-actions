@@ -46,4 +46,4 @@ jobs:
           with:
             name:  dragon text file         
         - name: read the file
-          run: cat .github/workflows/dragon.txt                       
+          run: cat dragon.txt                       
