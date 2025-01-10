@@ -14,6 +14,7 @@ jobs:
           run: cowsay -f dragon "run for cover" >> dragon.txt
     
     Test_job2:
+      needs: Build_job1
         runs-on: ubuntu-latest
         steps:
         - name: Checkout
@@ -23,6 +24,7 @@ jobs:
           run: grep -i "dragon" dragon.txt
     
     Deploy_job3:
+      needs: Test_job2
         runs-on: ubuntu-latest
         steps:
         - name: Checkout
