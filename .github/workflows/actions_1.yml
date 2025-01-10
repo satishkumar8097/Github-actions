@@ -7,16 +7,17 @@ jobs:
         - name: Checkout
           uses: actions/checkout@v4
 
-        - name: list files
-          run: ls -lrta
-
-        - name: install cowsay package
-          run: sudo apt-get install cowsay -y    
+        - name: execute shell script
+          run: ./command.sh 
         
-        - name: generate ASCII art
-          run: cowsay -f dragon 
+        - name: list files
+          run: ls -lrta           
 
-        # - name: execute shell script
-        #   run: |
-        #      chmod +x command.sh
-        #      ./command.sh  
+          
+
+        # - name: install cowsay package
+        #   run: sudo apt-get install cowsay -y    
+        
+        # - name: generate ASCII art
+        #   run: cowsay -f dragon 
+             
