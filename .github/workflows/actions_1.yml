@@ -9,7 +9,7 @@ jobs:
         
         - name: list files
           run: |
-              ls -lrta
+              echo $SHELL
               echo $0  
         
         - name: execute shell script
