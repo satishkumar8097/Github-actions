@@ -6,12 +6,16 @@ jobs:
         steps:
         - name: Checkout
           uses: actions/checkout@v4
-
+        
+        - name: list files
+          run: |
+              ls -lrta
+              echo $0  
+        
         - name: execute shell script
           run: ./command.sh 
         
-        - name: list files
-          run: ls -lrta           
+       
 
           
 
