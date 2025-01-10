@@ -16,6 +16,7 @@ jobs:
         - name: execute shell script
           run: |
              cd .github/workflows 
+             chmod +x command.sh
              ./command.sh
           shell: bash
         
