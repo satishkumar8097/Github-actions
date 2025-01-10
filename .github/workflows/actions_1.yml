@@ -13,7 +13,7 @@ jobs:
               echo $0
         
         - name: execute shell script
-          run: ./command.sh
+          run: sh command.sh
           shell: bash
         
        
