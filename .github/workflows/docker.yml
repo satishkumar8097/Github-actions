@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: docker build
-      run: docker buildx -t docker.io/docker.Username/imageName:latest
+      run: docker buildx docker.io/docker.Username/imageName:latest
 
     - name: docker login
       run: docker login --username=satishkumargc --password=JEEvesh22.
