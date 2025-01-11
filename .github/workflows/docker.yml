@@ -1,4 +1,4 @@
-name: docker login with Env
+name: docker login with Env variable
 
 on: push
 
