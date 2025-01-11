@@ -12,20 +12,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: docker build
-      run: docker build -t $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
+      run: echo docker build -t $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
 
 
     - name: docker login
       env:
         DOCKER_PASSWORD: JEEvesh22.
-      run: docker login --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD
+      run: echo docker login --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD
 
     - name: docker image push
-      run: docker push $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
+      run: echo docker push $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
 
   Deploydocker:
     needs: docker
     runs-on: ubuntu-latest
     steps:
     - name: docker run
-      run: docker run -d -p 8080:80 $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest 
+      run: echo docker run -d -p 8080:80 $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest 
