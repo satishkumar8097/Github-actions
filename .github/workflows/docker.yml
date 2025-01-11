@@ -2,22 +2,30 @@ name: docker login with Env variable
 
 on: push
 
+env:
+  CONTAINER_REGISTRY: docker.io
+  DOCKER_USERNAME: satishkumargc
+  IMAGE_NAME: github-actions-nginx
+
 jobs: 
   docker:
     runs-on: ubuntu-latest
     steps:
     - name: docker build
-      run: docker build -t docker.io/docker.satishkumargc/imageName:latest
+      run: docker buildx build -t $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
+
 
     - name: docker login
-      run: docker login --username=satishkumargc --password=JEEvesh22.
+      env:
+        DOCKER_PASSWORD: JEEvesh22.
+      run: docker login --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD
 
     - name: docker image push
-      run: docker push docker.io/docker.satishkumargc/imageName:latest
+      run: docker push $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
 
   Deploydocker:
     needs: docker
     runs-on: ubuntu-latest
     steps:
     - name: docker run
-      run: docker run -d -p 8080:80 docker.io/docker.satishkumargc/imageName:latest  
+      run: docker run -d -p 8080:80 $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest 
