@@ -7,17 +7,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: docker build
-      run: docker buildx build -t docker.io/docker.Username/imageName:latest
+      run: docker build -t docker.io/docker.satishkumargc/imageName:latest
 
     - name: docker login
       run: docker login --username=satishkumargc --password=JEEvesh22.
 
     - name: docker image push
-      run: docker push docker.io/docker.Username/imageName:latest
+      run: docker push docker.io/docker.satishkumargc/imageName:latest
 
   Deploydocker:
     needs: docker
     runs-on: ubuntu-latest
     steps:
     - name: docker run
-      run: docker run -d -p 8080:80 docker.io/docker.Username/imageName:latest  
+      run: docker run -d -p 8080:80 docker.io/docker.satishkumargc/imageName:latest  
